@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Technical_solution.Models.Sentenсes>
+@{
+    ViewData["Title"] = "Solution";
+    Layout = null;
+}
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-all.min.css">
+</head>
+<body style="width:80%; margin-left:auto; margin-right:auto; margin-top: 2%; background-color:lightgray;" >
+    <form class="inline-form" method="post" enctype="multipart/form-data">
+        <input class="button small" style="background-color:lightgray" type="file" name="uploadedFile" required/>
+        <input name="search" placeholder="Search word" required/>
+        <input style="margin-left:10px;" type="submit" value="Get sentences" />
+    </form><br />
+    
+    <table class="table table-border cell-border">
+        <tr>
+            <td>Ім'я файлу</td>
+            <td>Речення</td>
+            <td>Слово</td>
+            <td>Кількість повторень</td>
+        </tr>
+        @foreach (var sentence in Model)
+        {
+            <tr>
+                <td>@sentence.FileName</td>
+                <td>@sentence.Sentenсe</td>
+                <td>@sentence.SearchWord</td>
+                <td>@sentence.Count</td>
+            </tr>
+        }
+    </table>
+
+</body>
+</html>
